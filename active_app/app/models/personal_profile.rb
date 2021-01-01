@@ -1,3 +1,3 @@
-class Personal_profile < ActiveRecord::Base
+class PersonalProfile < ActiveRecord::Base
 
 end 
