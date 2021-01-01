@@ -7,8 +7,8 @@ class PersonalProfilesController<ApplicationController
 
 
     def create 
-        @profile=PersonalProfile.find_or_create(profile_params)
-        redirect_to personal_profiles_path(@profile)
+        @profile=PersonalProfile.find_or_create_by(profile_params)
+        redirect_to personal_profile_path(@profile)
     end
 
     def show
@@ -19,7 +19,7 @@ class PersonalProfilesController<ApplicationController
 private
 
 def profile_params
-    params.require(:info).permit(:name, :age, :occupation, :weight, :height)
+    params.require(:personal_profile).permit(:name, :age, :occupation, :weight, :height)
 end
 
 end
