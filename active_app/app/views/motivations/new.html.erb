@@ -1,0 +1,71 @@
+<h1>Motivation </h1>
+
+<p>We often think of motivation as fleeting moments of inspiration or burst of creativity. When in fact, motivation 
+work much like, food provides fuel and energy for the physical body. Motivation gives us the emotional and mental 
+energy needed for our goals. In the same way nutritious food helps us take on tough physical challenges, the proper 
+motivation helps us with tough and challenging goals. We have two basic types of motivation, one called controlled 
+and the other autonomous, Controlled motivation works much like bad food. It provides temporary boost of mental and 
+emotional energy, but in the end, leaves more tired and fatigued. Here we pursue a goal due to outside rewards or 
+threats of punishment. This type of motivation helps in short-term but adds pressure and stress over the long-term.
+Autonomous motivation acts more like good nutritious food. It provides a long-term boost and leaves us feeling more 
+satisfied and fulfilled. In this case, we gain motivation through our interests, passions, and values. Goals and 
+activities focus on mastery on new skills, greater connections with other people, or more of control of our lives. 
+Since we enjoy a greater sense of satisfaction and enjoyment, we gain greater resiliency and persistence.</p>
+
+<p>Why do you want to lead an active and health lifestyle?</p>
+<%= form_for @motivation do |f| %>   
+<p><%=f.text_area :motivator, size: "100x4" %></p>
+
+<h4>Type of Motivation: A Little Deeper</h4>
+<p>It is best to think of autonomous and controlled motivation as a continuum and not opposites. Both of serve a 
+purpose and can drive us to success. Problems arise if we depend on controlled motivation over the long-term.
+It create unneeded pressure and leads to burnout. The types of controlled motivation include:</p> 
+<ul>  
+   <li>Amotivation- A lack of motivation or feeling unable to move to your goal. You may act passively or 
+       obstinately. People experiencing amotivation fear failure, apathy, and insecure.</li> 
+   <li>External Pressure-Performing certain actions and pursuing goals based on threats or reward from others or 
+       society. They may bring pressure, stress, dissatisfaction, and little engagement. For example, we could 
+       be losing due to our spouse or playing a sport because of family pressure.  </li>
+   <li>Internal Pressure- Pursuing goals and performing actions based on inward pressure. In this case, we may find 
+       ourselves grinding joylessly toward our goals and deal with guilt or shame. An instance of this maybe lifting, 
+       because we feel ugly or losing weight to fit into a bikini. </li>
+</ul>
+
+<p>Autonomous motivation help us see the usefulness and value of our goals and activities. We free ourselves from 
+   pressure, and forge greater competence, independence, and connectedness. Types of autonomous motivation:</p> 
+
+<ul>
+   <li>Usefulness-Driven- We pursue certain goals, because of their usefulness and relevancy to us. A good example is 
+       losing ten pounds, so we have more energy for daily activities.</li>
+   <li>Value-Driven-These goals and activities connect with our values and passion. So, they give us a sense of pride 
+       and gratification. For instance, we value being fit active, so we play sports and exercise regularly.</li>
+   <li>Intrinsic Motivation-Pursuing a goal or performing an activity based on interests and passions. An instance of
+       this could be we love the water, so we may start paddling.</li> 
+</ul>
+
+
+<p>What type of motivation are you experiencing?</p>
+
+<p>
+<%=f.radio_button :motivation_type, "External Pressure" %> External Pressure <br />
+<%=f.radio_button :motivation_type, "Internal Pressure" %> Internal Pressure<br />
+<%=f.radio_button :motivation_type, "Usefulness-Driven" %> Usefulness-Driven<br />
+<%=f.radio_button :motivation_type, "Values-Driven" %> Values-Driven<br />
+<%=f.radio_button :motivation_type, "Intrinsic Motivation" %> Intrinsic Motivation<br />
+</p>
+
+<p>How much inwared and outward presure are you exepriencing in pursuing this goal?</p>
+
+<%=f.radio_button :pressure, "Lots of Pressure" %> Lots of Pressure</br>
+<%=f.radio_button :pressure, "Some Pressure" %> Some Pressure</br>
+<%=f.radio_button :pressure, "Very Little Pressure" %> Very Little Pressure</br>
+<%=f.radio_button :pressure, "No Pressure" %> No Pressure</br></br>
+
+<p>If you feel lots of pressure, how can you connect with your values and interests?</p>
+<p><%=f.text_area  :new_motivator, size: "100x4" %></p>
+
+<p><%=f.submit %></p>
+<% end %>
+
+
+
