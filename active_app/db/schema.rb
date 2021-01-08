@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_07_181529) do
+ActiveRecord::Schema.define(version: 2021_01_08_055045) do
+
+  create_table "availables", force: :cascade do |t|
+    t.string "neighborhood"
+    t.string "safety"
+    t.string "natural"
+    t.string "gym"
+    t.string "classes"
+    t.string "physical"
+    t.string "place"
+    t.string "man_made"
+  end
 
   create_table "goals", force: :cascade do |t|
     t.string "objective_1"

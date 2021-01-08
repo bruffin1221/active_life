@@ -1,0 +1,44 @@
+<%= form_for @available do |f|%>
+
+    <h4>Does your neighborhood or community have well-maintained, homes, sidewalks, and roads?</h4>
+
+    <%=f.text_area :neighborhood, size: "50x2" %>
+
+    <h4>Do you feel neighborhood in terms of crime and traffic?</h4>
+
+    <%=f.radio_button :safety, "No"%> No<br/>
+
+    <%=f.radio_button :safety, "Yes"%> Yes<br/>
+
+    <h4>What are some the natural features in your neighborhood(lakes, rivers, streams, mountains, hills)?</h4>
+
+    <%=f.text_area :natural, size: "50x2" %>
+
+    <h4> What man-made features do you have in community (parks, fountains, walking paths, green spaces, sports 
+    courts, biking paths)?</h4>
+
+    <%=f.text_area :man_made, size: "50x2" %>
+
+    <h4>Does you have access to a gym equipment? </h4>
+    <%=f.radio_button :gym, "No"%> No<br/>
+
+    <%=f.radio_button :gym, "Yes"%> Yes<br/>
+
+    <h4>Do you have access to fitness classes and personal training?</h4>
+
+    <%=f.radio_button :classes, "No"%> No<br/>
+
+    <%=f.radio_button :classes, "Yes"%> Yes<br/>
+
+    <h4>What physical activities do you plan on doing?</h4>
+
+    <%=f.text_area :physical, size: "50x2" %>
+    
+    <h4>What physical activities do you plan on performing these activities?</h4>
+
+    <%=f.text_area :place, size: "50x2" %><br>
+
+    <%=f.submit %>
+
+    <% end %>
+    

@@ -1,3 +1,3 @@
-class Access0bility < ActiveRecord::Base
+class Accessibility < ActiveRecord::Base
 
 end 
