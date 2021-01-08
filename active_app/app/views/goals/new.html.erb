@@ -20,18 +20,112 @@ statement that focuses us on a set of actions. These statements include:</p>
    <li>Goal statements are statements of desires of our desires and wants. In fitness 
        goals, identify our motivation in the first of part statement, and the second is 
        the desire or want. Finally, focus on the change lifestyle and not numbers of 
-       deadlines. Ex. I want to more energy to play with my kids, so I want to lead a  
-       healthier lifestyle</li>
+       deadlines. Example of goals are:
+         <ul>
+           <li>I want more energy to play with my kids, so I want to develop healthier habits.</li>
+           <li>I love running and challenging myself, so I want to run a marathon</li>
+         </ul>
+     </li>
    <li>Objectives are the action steps needed for our goal. Here we want to add numbers   
-       and deadlines. Ex.Lose ten pounds through better nutrition and nutrition over the 
-       next two months and ten pounds of muscle through weightlifting and nutrition</li>
-    <li>Strategy are routines, techniques, and methods needed for our goals and   
-        objectives. Our objective could be losing ten pounds through regular exercise. A 
-        strategy maybe lifting three days a week followed by two days of cardio</li>
+       and deadlines. Good objectives for the goal,"I want more energy to play with my kids, 
+       so I want to develop healthier habits."
+       <ul>
+         <li>I want to spend the next month learning about proper nutrition and exercise 
+              technique.</li>
+         <li>Then I want to lose ten pounds over three months.</li> 
+       </ul>
+    </li>
+    <li>Strategies are routines, techniques, and methods needed for our goals and objectives. A 
+        strategy for learning about nutrition and exercise technique by meeting with a personal 
+        trainer or nutritionist.</li>
     <li>Tactics are specific actions needed for our strategies. Our strategy maybe lifting 
-        three days followed by two days of cardio. Tactic could be jogging two days a week 
-        as part of our cardio and a full Circuit the other three days.</li>
+        three days followed by two days of cardio. Tactics could focus on specific workouts.
+        <ul>
+          <li>Jogging or a zumbe class two days for our cardio</li> 
+          <li>Put together an outdoor full body circuit three days a week</li> 
+        </ul>
+    </li>
 </ul>
 
-<p>As you add actions to your goals, make sure to add enjoyable activities. Cardio exercises can include anything 
-that brings you movement. It could be jogging, walking, dancing, fitness classes, and cycling.</p> 
+<p>As you set goals, here are some suggestions for success:<p>
+    
+<ul>
+  <li>Goals should focus on values, interests, and passion.</li> 
+  <li>Make sure goals and activities allow for learning new skills, building confidence, 
+      and fostering relationships.</li>
+  <li>Keep activities fun and enjoyable. Include classes, outdoor activities, walking, dancing, 
+      sports, hiking, and time with friends and family.</li> 
+  <li>Always start slow, simple, and look for early victories.</li> 
+</ul>
+
+<h4>Create Goals</h4>
+
+    <h4>What is your goal</h4>
+
+    <%=form_for @goal do |f| %>
+
+    <%=f.text_area :add_goal, size: "50x2" %>
+    
+    <h4>What is your first objective?</h4>
+    
+    <p><%=f.text_area :objective_1, size: "50x2" %></p>
+    
+    <h4>What are your strategies and tactics for the first objective?</h4>
+    
+    <p>
+    <%=f.label :strategy %><br>
+    <%=f.text_area :strategy_1, size: "50x2" %>
+    </p>
+    
+    <p>
+    <%=f.label :tactic_1 %><br>
+    <%=f.text_area :tactic_1, size: "50x2" %><br>
+    </p>
+    
+    <p>
+    <%=f.label :tactic_2 %><br>
+    <%=f.text_area :tactic_2, size: "50x2" %>
+    </p>
+    
+    <h4>What is your strategy for your second objective? </h4>
+    <p><%=f.text_area :objective_2, size: "50x2" %>
+    
+    <h4>What is your strategy and tactics for second objective?</h4>
+    
+    <p>
+     <%=f.label :strategy_3 %><br>
+    <%=f.text_area :strategy_3, size: "50x2"%>
+    </p>
+    
+    <p>
+    <%=f.label :tactic_3 %><br>
+    <%=f.text_area :tactic_3, size: "50x2" %>
+    </p>
+    
+    <p>
+    <%=f.label :tactic_4 %><br>
+    <%=f.text_area :tactic_4, size: "50x2" %>
+    </p>
+    
+    <h4>What is your third objective?</h4>
+    
+    <p><%=f.text_area :objective_3, size: "50x2" %></p>
+    
+    <h4>What is your strategy and tactics for your third objective?</h4>
+    
+    <p>
+    <%=f.label :strategy_3%><br>
+    <%=f.text_area :strategy_3, size: "50x2" %>
+    </p>
+    
+    <p>
+    <%=f.label :tactic_5 %><br>
+    <%=f.text_area :tactic_5, size: "50x2" %><br>
+    </p>
+    
+    <p>
+    <%=f.label :tactic_6 %><br>
+    <%=f.text_area :tactic_6, size: "50x2" %>
+    
+    <p><%=f.submit %></p>
+    <% end %>

@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_05_225252) do
+ActiveRecord::Schema.define(version: 2021_01_07_181529) do
+
+  create_table "goals", force: :cascade do |t|
+    t.string "objective_1"
+    t.string "strategy_1"
+    t.string "tactic_1"
+    t.string "tactic_2"
+    t.string "objective_2"
+    t.string "strategy_2"
+    t.string "tactic_3"
+    t.string "tactic_4"
+    t.string "objective_3"
+    t.string "strategy_3"
+    t.string "tactic_5"
+    t.string "tactic_6"
+    t.string "add_goal"
+  end
 
   create_table "motivations", force: :cascade do |t|
     t.string "motivator"

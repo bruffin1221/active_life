@@ -2,7 +2,6 @@ class PersonalProfilesController<ApplicationController
 
     def new
         @profile= PersonalProfile.new
-
     end 
 
 
