@@ -4,14 +4,46 @@
 
     <p><%=f.text_area :activities, size: "50x2" %><p>
 
-    <h4>Where do you plan on training and working-out?<h4>
-    <%=f.radio_button :gym, "Gym" %> Gym
-    <%=f.radio_button :track, "Track" %> Track
-    <%=f.radio_button :home, "Home" %> Home
-    <%=f.radio_button :park, "Park" %> Park
-    <%=f.radio_button :nature_area, "Nature Area" %> Nature Area
+    <h4>Do you plan on training and working-out at the gym or home?<h4>
+    
+    <p>
+    <%=f.label :gym, "Gym: " %>
+    <%=f.radio_button :gym, "Yes" %> Yes
+    <%=f.radio_button :gym, "No" %> No
+    </p>
+
+    <p>
+    <%=f.label :home, "Home: "%>
+    <%=f.radio_button :home, "Yes" %> Yes
+    <%=f.radio_button :home, "No" %> No
+    </p>
+
+    <h4>What about track or park></h4>
+
+    <p>
+    <%=f.label :track, "Track: " %>
+    <%=f.radio_button :track, "Yes" %> Yes
+    <%=f.radio_button :track, "No" %> No
+    </p>
+
+    <p>
+    <%=f.label :park, "Park: " %>
+    <%=f.radio_button :park, "Yes" %> Yes
+    <%=f.radio_button :park, "No" %> No
+    </p>
+
+    <h4>What about nature or other area?</h4>
+    
+    <p>
+    <%=f.label :nature_area, "Nature Area: " %>
+    <%=f.radio_button :nature_area, "Yes" %> Yes
+    <%=f.radio_button :nature_area, "No" %> No
+    </p>
+
+    <p>
     <%=f.label :other %> 
     <%=f.text_field :place %>
+    </p>
 
     <h4>What equipment will need for your activities?</h4>
 
@@ -46,25 +78,66 @@
     <h4>Can you afford these items?</h4>
     
     <%=f.radio_button :afford, "Yes" %>Yes<br />
-    <%=f.radio_button :afford,  "No" %> Yes<br />
+    <%=f.radio_button :afford,  "No" %> No<br />
     
-    <h4>What items can you back on to save money?</h4>
-     <p>
-    <%=f.radio_button :eating_out, "Eating Out" %> Eating Out
-    <%=f.radio_button :smoking,  "Smoking" %> Smoking<
-    <%=f.radio_button :drinking,  "Dinking" %> Drinking
-    <%=f.radio_button :subscription,  "Subscriptions" %> Subscriptions
+    <h4>What items can you cut back on to save money?</h4>
+    
+    <p>
+    <%=f.label :eating_out, "Eating Out: " %>
+    <%=f.radio_button :eating_out, "Yes" %> Yes
+    <%=f.radio_button :eating_out, "No" %> No
+    </p>
+
+    <p>
+    <%=f.label :smoking, "Smoking: " %>
+    <%=f.radio_button :smoking, "Yes" %> Yes
+    <%=f.radio_button :smoking,  "No" %> No
+    </p>
+
+    <p>
+    <%=f.label :drinking, "Drinking: " %>
+    <%=f.radio_button :drinking,  "Yes" %> Yes
+    <%=f.radio_button :drinking,  "No" %> No
+    </p>
+
+    <p>
+    <%=f.label :drinking, "Subscriptions: " %>
+    <%=f.radio_button :subscription,  "Yes" %> Yes
+    <%=f.radio_button :subscription,  "No" %> No
+    </p>
+
+    <p> 
     <%=f.label :other %> 
     <%=f.text_field :other_costs %>
     </p>
 
     <h4>What kind of responsibilities do you have during the week?</h4>
 
-    <p>   
-    <%=f.radio_button :household_chores, "Household chores" %> Household Chores
-    <%=f.radio_button :children, "Children" %> Children
-    <%=f.radio_button :work, "Work" %> Work
-    <%=f.radio_button :school, "School" %> School
+    <p>
+    <%=f.label :household_chores, "Household Chores: " %>
+    <%=f.radio_button :household_chores, "Yes" %>Yes
+    <%=f.radio_button :household_chores, "No" %>No
+    </p>
+
+    <p>
+    <%=f.label :children, "Children: " %>
+    <%=f.radio_button :children, "Yes" %> Yes
+    <%=f.radio_button :children, "No" %> No
+    </p>
+
+    <p>
+    <%=f.label :work, "Work: " %>
+    <%=f.radio_button :work, "Yes" %> Yes
+    <%=f.radio_button :work, "No" %> No
+    </p>
+
+    <p>
+    <%=f.label :school, "School: " %>
+    <%=f.radio_button :school, "Yes" %> Yes 
+    <%=f.radio_button :school, "No" %> No
+    </p>
+
+    <p>
     <%=f.label :other_responsibilities %> 
     <%=f.text_field :other_responsibilities %>
     </p>

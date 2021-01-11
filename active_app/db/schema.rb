@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_11_022520) do
+ActiveRecord::Schema.define(version: 2021_01_11_160441) do
 
   create_table "availables", force: :cascade do |t|
     t.string "neighborhood"
@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(version: 2021_01_11_022520) do
     t.string "groups"
     t.string "group_parts"
     t.string "other"
+    t.string "klass"
   end
 
 end

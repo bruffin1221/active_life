@@ -7,27 +7,60 @@
     <%=f.radio_button :engage, "No" %> No
     </p>
 
-    <h4>If yes, what activities?</h4>
+    <h4>Does your family go on walks?</h4>
+
+    <p>
+    <%=f.label :walks, "Walks: " %>
+    <%=f.radio_button :walks, "Yes" %> Yes
+    <%=f.radio_button :walks, "No" %> No
+    </p>
+
+    <h4>Does your family participate in sports or other outdoor activities?</h4>
+
+    <p>
+    <%=f.label :sports, "Sports: " %>
+    <%=f.radio_button :sports, "Yes" %> Yes
+    <%=f.radio_button :sports, "No" %> No
+    </p>
+
+    <p>
+    <%=f.label :outdoor_activities, "Outdoor Activities: " %>
+    <%=f.radio_button :outdoor_activities, "Yes" %> Yes
+    <%=f.radio_button :outdoor_activities, "No" %> No
+    
+    <h4>What other physical activities does your family participate?</h4>
     
     <p>
-    <%=f.radio_button :walks, "Walks" %> Walks
-    <%=f.radio_button :sports, "Sports" %> Sports
-    <%=f.radio_button :outdoor_activities, "Outdoor Activities" %> Outdoor Activities
-    <%=f.label :other%> 
     <%=f.text_field :other_activities%> 
     </p>
 
-    <h4>If no, what activities?</h4>
+    <h4>Does your family watch lots of television or play video games?</h4>
     
     <p>
-    <%=f.radio_button :television, "Television" %> Television
-    <%=f.radio_button :gaming, "Video Games" %> Video Games
-    <%=f.radio_button :reading, "Reading" %> Reading 
+    <%=f.label :television, "Television: " %>
+    <%=f.radio_button :television, "Yes" %> Yes
+    <%=f.radio_button :television, "No" %> No
+    </p>
+
+    <p>
+    <%=f.label :gaming, "Gaming: " %>
+    <%=f.radio_button :gaming, "Yes" %> Yes
+    <%=f.radio_button :gaming, "No" %> No
+
+    <h4>Does your family read or participate in other indoor activities?</h4>
+    
+    <p>
+    <%=f.label :reading, "Reading: " %>
+    <%=f.radio_button :reading, "Yes" %> Yes
+    <%=f.radio_button :reading, "No" %> No
+    </p>
+
+    <p>
     <%=f.label :other%> 
     <%=f.text_field :other_indoor %>
     </p>
 
-    <h4>Will your family participate in physical activities with you?</h4>
+    <h4>Will your family spend more time participating in physical activities with you?</h4>
     
     <p>
     <%=f.radio_button :participate,"Yes" %>Yes  
@@ -41,11 +74,11 @@
     <%=f.radio_button :family_support, "No" %> No
     </p>
 
-    <h4>What activities do you do with friends?</h4>
+    <h4>What activities do you do with your friends?</h4>
     
     <%=f.text_area :friend_activities, size: "50x2" %>
 
-    <h4>Are any activities physical?</h4>
+    <h4>Are any of these activities physical?</h4>
 
     <p>
     <%=f.radio_button :friend_physical, "Yes" %> Yes  
@@ -59,46 +92,67 @@
     <%=f.radio_button :f_physical, "No" %> No
     </p>
 
-    <h4>if yes, who?</h4>
+    <h4>If yes, who?</h4>
     
     <p>
     <%=f.text_field :friend_name %>
     </p>
 
-    <h4> What kinds of physical activities does your community offer</h4>
+    <h4>Does your offer city or community have hiking trails, walking trails, and biking paths?</h4>
     
     <p>
-    <%=f.radio_button :hiking, "Hiking" %>Hiking
-    <%=f.radio_button :cycling, "Cycling" %>Cycling
-    <%=f.radio_button :walking_paths, "Walking Paths" %>Walking Paths
-    <%=f.radio_button :rec_centers, "Recreation Centers" %> Recreation Centers
-    <%=f.label :other %>
+    <%=f.label :hiking, "Hiking Trails: "%>
+    <%=f.radio_button :hiking, "Yes" %> Yes 
+    <%=f.radio_button :hiking, "No" %>No
+    </p>
+
+    <p>
+    <%=f.label :walking, "Walking Path: "%>
+    <%=f.radio_button :walking_paths, "Yes" %> Yes
+    <%=f.radio_button :walking_paths, "No" %>No
+    </p>
+
+    </p>
+    <%=f.label :biking_paths, "Biking Path: "%>
+    <%=f.radio_button :cycling, "Yes" %>Yes
+    <%=f.radio_button :cycling, "No" %>No
+    </p>
+
+    <h4>What about recreation centers or other opportunities for physical activity?</h4>
+   
+    <p>
+    <%=f.label :rec_center, "Recreation Centers: " %>
+    <%=f.radio_button :rec_centers, "Yes" %> Yes
+    <%=f.radio_button :rec_centers, "No" %> No
+    </p>
+
+    <p>
+    <%=f.label :other, "Other: " %>
     <%=f.text_field :other %>
     </p>
 
-    <h4>Are there any groups or classes for these activities</h4>
+    <h4>Are there any groups or classes for these activities?</h4>
 
     <p>
     <%=f.radio_button :groups, "Yes" %> Yes
     <%=f.radio_button :groups, "No" %> No
     </p>
 
-    <h4>Are there any groups or classes for these activities</h4>
+    <h4>Will you be participating in any of these groups or classes for these activities?</h4>
 
     <p>
-    <%=f.radio_button :group_part, "Yes" %> Yes
-    <%=f.radio_button :group_part, “No” %> No
+    <%=f.radio_button :group_parts, "Yes" %> Yes
+    <%=f.radio_button :group_parts, "No" %> No
     </p>
 
-    <h4>If yes, what group or classes do you plan on participating?</h4>
+    <h4>If yes, what groups or classes do you plan on participating?</h4>
     
     <p>
-    <%=f.text_field :class %>
+    <%=f.text_area :klass, size: "50x2" %>
     </p>
- 
-    <p>
+     
     <%=f.submit %>
-    </p>
+    
 
     <% end %>
     

@@ -15,7 +15,8 @@ class AvailablesController <ApplicationController
     private
     
     def  available_params
-       params.require(:available).permit(:neighborhood, :man_made, :safety, :natural, :gym, :classes, :physical, :place)
+       params.require(:available).permit(:neighborhood, :man_made, :safety, :natural, :gym, :classes, :physical, 
+       :place)
     end
     
     end
