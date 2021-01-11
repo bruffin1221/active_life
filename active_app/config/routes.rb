@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   resources :availables
 
+  resources :costs
 
+  resources :supports
 
 
 end

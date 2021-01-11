@@ -1,0 +1,121 @@
+
+<h4>What types of activities do you plan on doing?
+    <%= form_for @cost do |f| %>
+
+    <p><%=f.text_area :activities, size: "50x2" %><p>
+
+    <h4>Where do you plan on training and working-out?<h4>
+    <%=f.radio_button :gym, "Gym" %> Gym
+    <%=f.radio_button :track, "Track" %> Track
+    <%=f.radio_button :home, "Home" %> Home
+    <%=f.radio_button :park, "Park" %> Park
+    <%=f.radio_button :nature_area, "Nature Area" %> Nature Area
+    <%=f.label :other %> 
+    <%=f.text_field :place %>
+
+    <h4>What equipment will need for your activities?</h4>
+
+    <p>
+    <%=f.label :equipment_1 %> 
+    <%=f.text_field :equipment_1 %>
+    <%=f.label :cost_1 %>
+    $<%=f.text_field :cost_1 %>
+    </p>
+    
+    <p>
+    <%=f.label :equipment_2 %> 
+    <%=f.text_field :equipment_2 %>
+    <%=f.label :cost_2 %>
+    $<%=f.text_field :cost_2 %>
+    </p>
+    
+    <p>
+    <%=f.label :equipment_3 %> 
+    <%=f.text_field :equipment_3 %>
+    <%=f.label :cost_3 %>
+    $<%=f.text_field :cost_3 %>
+    </p>
+
+    <p>
+    <%=f.label :equipment_4 %> 
+    <%=f.text_field :equipment_4%>
+    <%=f.label :cost_4 %>
+    $<%=f.text_field :cost_4 %><br/><br/>
+    </p>
+
+    <h4>Can you afford these items?</h4>
+    
+    <%=f.radio_button :afford, "Yes" %>Yes<br />
+    <%=f.radio_button :afford,  "No" %> Yes<br />
+    
+    <h4>What items can you back on to save money?</h4>
+     <p>
+    <%=f.radio_button :eating_out, "Eating Out" %> Eating Out
+    <%=f.radio_button :smoking,  "Smoking" %> Smoking<
+    <%=f.radio_button :drinking,  "Dinking" %> Drinking
+    <%=f.radio_button :subscription,  "Subscriptions" %> Subscriptions
+    <%=f.label :other %> 
+    <%=f.text_field :other_costs %>
+    </p>
+
+    <h4>What kind of responsibilities do you have during the week?</h4>
+
+    <p>   
+    <%=f.radio_button :household_chores, "Household chores" %> Household Chores
+    <%=f.radio_button :children, "Children" %> Children
+    <%=f.radio_button :work, "Work" %> Work
+    <%=f.radio_button :school, "School" %> School
+    <%=f.label :other_responsibilities %> 
+    <%=f.text_field :other_responsibilities %>
+    </p>
+
+    <h4>Do you feel that you have enough time to fulfill these responsibilities and added physical activities?</h4>
+
+    <%=f.radio_button :time, "Yes" %> Yes  
+    <%=f.radio_button :time, "No" %> No
+    
+    <h4>If overwhelmed, how much time do you spend?</h4>
+    <p>
+    <%=f.label :television %> 
+    <%=f.text_field :television %>
+    
+    <%=f.label :social_media %>
+    <%=f.text_field :social_media %><br/>
+    </p>
+
+    <p>
+    <%=f.label :video_games %>
+    <%=f.text_field :video_games %>
+    
+    <%=f.label :internet_surfing %>
+    <%=f.text_field :internet_surfing %>
+
+    <%=f.label :other_activities %>
+    <%=f.text_field :other_activities %>
+    </p>
+
+    <h4>Can you reduce from these activities and dedicate to physical activity?</h4>
+
+    <%=f.radio_button :dedicated, "Yes"%>Yes  
+    <%=f.radio_button :dedicated, "No"%>No
+
+    <h4>How much time can dedicate to health and active living?</h4>
+
+    <%=f.text_field :time_spent %>
+    
+    <h4>When do you plan on working-out?</h4>
+
+    <%=f.radio_button :time_of_day, "Morning" %> Morning
+    <%=f.radio_button :time_of_day, "Afternoon" %> Afternoon
+    <%=f.radio_button :time_of_day, "Night" %> Night
+
+    <h4>How many days a week?<h4>
+
+    <%=f.radio_button :days_a_week, "1-2 days a week" %> 1-2 Days a Week
+    <%=f.radio_button :days_a_week, "3-4 days a week" %> 3-4 Days a Week<br />
+    <%=f.radio_button :days_a_week, "4-5 days a week" %> 4-5 Days a Week
+    <%=f.radio_button :days_a_week, "6-7 days a week" %> 6-7 Days a Week<br />
+
+    <p><%= f.submit %></p>
+
+    <% end %>
