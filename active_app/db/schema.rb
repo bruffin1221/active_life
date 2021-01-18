@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_11_160441) do
+ActiveRecord::Schema.define(version: 2021_01_18_020334) do
 
   create_table "availables", force: :cascade do |t|
     t.string "neighborhood"
@@ -91,6 +91,10 @@ ActiveRecord::Schema.define(version: 2021_01_11_160441) do
     t.string "occupation"
     t.integer "weight"
     t.string "height"
+    t.string "back_pain"
+    t.string "serious_illness"
+    t.string "serious_injuries"
+    t.string "password_digest"
   end
 
   create_table "supports", force: :cascade do |t|

@@ -1,30 +1,56 @@
 <%= form_for @profile do |f| %>
-    <p>
+    <h4>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
-    </p>
+    </h4>
 
-    <p>
+    <h4>
     <%= f.label :age %><br>
     <%= f.text_field :age %>
-    </p>
+    </h4>
 
-    <p>
+    <h4>
     <%= f.label :occupation %><br>
     <%= f.text_field :occupation %>
-    </p>
+    </h4>
 
-    <p>
+    <h4>
     <%= f.label :weight %><br>
     <%= f.text_field :weight %>
-    <p>
+    </h4>
 
-    <p>
+    <h4>
     <%= f.label :height %><br>
     <%= f.text_field :height %>
-    </p>
+    </h4>
 
-    <p>
+    <h4>Have you experienced back pain in the last 6 months?</h4>
+    
+    <%=f.radio_button :back_pain, "Yes" %> Yes
+    <%=f.radio_button :back_pain, "No" %> No
+    <br>
+    <h4>Do you have any serious illesses or chronic diseases
+    (cancer, diabetes, heart disease, etc)?</h4>
+    
+    <%=f.radio_button :serious_illness, "Yes" %> Yes
+    <%=f.radio_button :serious_illness, "No" %> No
+    <br>
+    <h4>Have had any serious injuries the last six months(
+    broken bones, torn tendons or ligaments, serious strains, etc?</h4>
+    <%=f.radio_button :serious_injuries, "Yes" %> Yes
+    <%=f.radio_button :serious_injuries, "No" %> No
+    
+    <h4>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+    </h4>
+
+    <h4>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+    </h4>
+
+
     <%= f.submit %>
 
     <% end %>
