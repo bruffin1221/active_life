@@ -1,7 +1,7 @@
 class MotivationsController<ApplicationController
     
     def new
-       @motivation=Motivation.new
+      
     end
     
     
@@ -13,11 +13,15 @@ class MotivationsController<ApplicationController
     def show 
         @motivation=Motivation.find_by_id(params[:id])
     end
+
+    def edit
+        @profile= PersonalProfile.find_by_id(params[:id])
+    end
        
     private
     
     def motivation_params
-        params.require(:motivation).permit(:motivator, :motivation_type, :pressure, :new_motivator)
+        params.require(:motivation).permit(:motivator, :motivation_type, :pressure, :new_motivator, :personal_profile_id )
     end
        
        

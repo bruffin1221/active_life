@@ -1,8 +1,27 @@
-<h1><%= @profile.name %></h1>
-<h4>Age: <%= @profile.age %></h4>
-<h4>Occupation: <%= @profile.occupation %></h4>
-<h4>Weight: <%= @profile.weight %></h4>
-<h4>Height: <%= @profile.height %></h4>
+<h1>Welcome <%= @profile.name %></h1>
+
+<h4>Age</h4>
+ <p><%= @profile.age %></p>
+
+<h4>Occupation</h4>
+<p><%= @profile.occupation %></p>
+
+<h4>Weight</h4>
+<p><%= @profile.weight %></p>
+
+<h4>Height</h4>
+<p><%= @profile.height %></p>
+
+<h4>Do you have backpain?</h4>
+<p><%= @profile.back_pain %></p>
+
+<h4>Have you experienced any backpain?</h4>
+<p><%= @profile.serious_illness %></p>
+
+<h4>Have you had any serious injuries over the last six months?</h4>
+<p><%= @profile.serious_injuries %></p>
 
 
+
+<%= link_to "Edit Profile", edit_personal_profile_path(@profile) %><br>
 <%= link_to "Log Out", logout_path %>

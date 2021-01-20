@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_18_020334) do
+ActiveRecord::Schema.define(version: 2021_01_20_042559) do
 
   create_table "availables", force: :cascade do |t|
     t.string "neighborhood"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2021_01_18_020334) do
     t.string "motivation_type"
     t.string "pressure"
     t.string "new_motivator"
+    t.integer "personal_profile_id"
   end
 
   create_table "personal_profiles", force: :cascade do |t|
