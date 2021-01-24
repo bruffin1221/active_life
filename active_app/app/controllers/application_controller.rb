@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
     def current_user
-        session[:user_id]
+       PersonalProfile.find_by_id(session[:user_id])
       end
     
       

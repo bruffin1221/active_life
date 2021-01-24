@@ -1,0 +1,70 @@
+
+<h4>What is your goal?</h4>
+
+    <%=form_for (@goal) do |f| %>
+    <%= f.hidden_field :personal_profile_id %>
+    <%=f.text_area :add_goal, size: "50x2" %>
+    
+    <h4>What is your first objective?</h4>
+    
+    <p><%=f.text_area :objective_1, size: "50x2" %></p>
+    
+    <h4>What are your strategies and tactics for the first objective?</h4>
+    
+    <p>
+    <%=f.label :strategy %><br>
+    <%=f.text_area :strategy_1, size: "50x2" %>
+    </p>
+    
+    <p>
+    <%=f.label :tactic_1 %><br>
+    <%=f.text_area :tactic_1, size: "50x2" %><br>
+    </p>
+    
+    <p>
+    <%=f.label :tactic_2 %><br>
+    <%=f.text_area :tactic_2, size: "50x2" %>
+    </p>
+    
+    <h4>What is your strategy for your second objective? </h4>
+    <p><%=f.text_area :objective_2, size: "50x2" %>
+    
+    <h4>What is your strategy and tactics for second objective?</h4>
+    
+    <p>
+     <%=f.label :strategy_3 %><br>
+    <%=f.text_area :strategy_3, size: "50x2"%>
+    </p>
+    
+    <p>
+    <%=f.label :tactic_3 %><br>
+    <%=f.text_area :tactic_3, size: "50x2" %>
+    </p>
+    
+    <p>
+    <%=f.label :tactic_4 %><br>
+    <%=f.text_area :tactic_4, size: "50x2" %>
+    </p>
+    
+    <h4>What is your third objective?</h4>
+    
+    <p><%=f.text_area :objective_3, size: "50x2" %></p>
+    
+    <h4>What is your strategy and tactics for your third objective?</h4>
+    
+    <p>
+    <%=f.label :strategy_3%><br>
+    <%=f.text_area :strategy_3, size: "50x2" %>
+    </p>
+    
+    <p>
+    <%=f.label :tactic_5 %><br>
+    <%=f.text_area :tactic_5, size: "50x2" %><br>
+    </p>
+    
+    <p>
+    <%=f.label :tactic_6 %><br>
+    <%=f.text_area :tactic_6, size: "50x2" %>
+    
+    <p><%=f.submit %></p>
+    <% end %>

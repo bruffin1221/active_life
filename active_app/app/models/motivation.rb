@@ -1,3 +1,3 @@
 class Motivation < ActiveRecord::Base
-has_one :personal_profile
+belongs_to :personal_profile
 end 

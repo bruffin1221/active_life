@@ -1,6 +1,6 @@
 class PersonalProfile < ActiveRecord::Base
-    
-    belongs_to :motivation
+    has_one :motivation
+    has_one :goal
     has_secure_password
 
 end 

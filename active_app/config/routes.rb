@@ -7,10 +7,16 @@ Rails.application.routes.draw do
  post '/logout' => 'sessions#destroy'
  get '/logout' => 'sessions#destroy'
 
+  resources :personal_profiles, only: [:new, :show] do 
+    resources :motivations, only: [:new, :edit]
+  end
+  
   resources :personal_profiles 
-    
-  resources :motivations, only: [:new, :show, :edit]
+  resources :motivations
  
+  resources :personal_profiles, only: [:new, :show] do 
+    resources :goals, only: [:new, :edit]
+  end
 
   resources :goals
 

@@ -1,7 +1,7 @@
 class GoalsController < ApplicationController
 
 def new
-    @goal=Goal.new
+    @goal=Goal.new(personal_profile_id: params[:personal_profile_id])
 end
 
 def create
@@ -17,7 +17,7 @@ private
 
 def goal_params
     params.require(:goal).permit(:add_goal, :objective_1, :strategy_1, :tactic_1, :tactic_2, :objective_2, 
-    :strategy_2, :tactic_3, :tactic_4, :objective_3, :strategy_3, :tactic_5, :tactic_6)
+    :strategy_2, :tactic_3, :tactic_4, :objective_3, :strategy_3, :tactic_5, :tactic_6, :personal_profile_id)
 end
 
 end

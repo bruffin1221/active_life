@@ -1,42 +1,47 @@
-<h1>Goal Plan</h1>
+<h1>Workout Plan</h1>
 
-<h4><%= @goal.add_goal %></h4>
+<h3>What is your overall goal?</h3>
 
-<ul>
-<li><%=@goal.objective_1 %>
-  <ul>
-    <li><%= @goal.strategy_1%>
-      <ul>
-       <li><%=@goal.tactic_1 %></li>
-       <li><%=@goal.tactic_2 %></li>
-      </ul>
-    </li>
-  </ul>
-</li>
-</ul>
+<p><%= @goal.add_goal %></p>
 
-<ul>
-<li><%=@goal.objective_2 %>
-  <ul>
-    <li><%= @goal.strategy_2%>
-      <ul>
-       <li><%=@goal.tactic_3 %></li>
-       <li><%=@goal.tactic_4 %></li>
-      </ul>
-    </li>
-  </ul>
-</li>
-</ul>
+<h3>What is your first objective or action steps??</h3>
 
-<ul>
-<li><%=@goal.objective_3 %>
-  <ul>
-    <li><%= @goal.strategy_3%>
-      <ul>
-       <li><%=@goal.tactic_5 %></li>
-       <li><%=@goal.tactic_6 %></li>
-      </ul>
-    </li>
-  </ul>
-</li>
-</ul>
+<p><%=@goal.objective_1 %></p>
+
+<h3>What is your strategy</h3>
+
+<p><%= @goal.strategy_1%><p>
+
+<h3>What are your tactics?</h3>
+
+<p><%=@goal.tactic_1 %></p>
+<p><%=@goal.tactic_2 %></p>
+    
+<h3>What is your second objective or action step?</h3>
+
+<p><%=@goal.objective_2 %></p>
+
+<h3>What is your second strategy</h3>
+
+<p><%= @goal.strategy_2%></p>
+
+<h3>What are your tactics?</h3>
+
+<p><%=@goal.tactic_3 %></p>
+<p><%=@goal.tactic_4 %></p>
+      
+<h3>What is your third objectives?</h3>
+
+<p><%=@goal.objective_3 %></p>
+
+<h3>What is your third strategy</h3>
+
+<p><%= @goal.strategy_3%></p>
+
+<h3>What is your third strategy</h3>
+
+<p><%=@goal.tactic_5 %></p>
+<p><%=@goal.tactic_6 %></p>
+     
+<%= link_to "Go to Profile", personal_profile_path(@goal.personal_profile_id) %><br>
+

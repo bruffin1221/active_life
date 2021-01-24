@@ -28,10 +28,16 @@ class PersonalProfilesController<ApplicationController
     def update
         @profile = PersonalProfile.find(params[:id])
         if @profile.update(profile_params)
-          redirect_to personal_profile_path(@profile), :alert => "You Just Updated Your User Account"
+          redirect_to personal_profile_path(@profile)
         else
           render 'edit', :alert => "Please Fill In All Forms"
         end
+      end
+
+      def destroy
+         @profile=PersonalProfile.find(params[:id])
+         @profile.destroy
+        redirect_to "/"
       end
 
     

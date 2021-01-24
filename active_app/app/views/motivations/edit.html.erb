@@ -1,0 +1,32 @@
+<h1> Edit Motivation <h1>
+
+<h4>Why do you want to lead an active and health lifestyle?</h4>
+    <%= form_for (@motivation) do |f| %> 
+    <%= f.hidden_field :personal_profile_id %>   
+    <p><%=f.text_area :motivator, size: "100x4" %></p>
+
+<h4>What type of motivation are you experiencing?</h4>
+
+<p>
+<%=f.radio_button :motivation_type, "External Pressure" %> External Pressure <br />
+<%=f.radio_button :motivation_type, "Internal Pressure" %> Internal Pressure<br />
+<%=f.radio_button :motivation_type, "Usefulness-Driven" %> Usefulness-Driven<br />
+<%=f.radio_button :motivation_type, "Values-Driven" %> Values-Driven<br />
+<%=f.radio_button :motivation_type, "Intrinsic Motivation" %> Intrinsic Motivation<br />
+</p>
+
+<h4>How much inwared and outward presure are you exepriencing in pursuing this goal?</h4>
+
+<p>
+<%=f.radio_button :pressure, "Lots of Pressure" %> Lots of Pressure</br>
+<%=f.radio_button :pressure, "Some Pressure" %> Some Pressure</br>
+<%=f.radio_button :pressure, "Very Little Pressure" %> Very Little Pressure</br>
+<%=f.radio_button :pressure, "No Pressure" %> No Pressure</br></br>
+</p>
+
+<h4>If you feel lots of pressure, how can you connect with your values and interests?</h4>
+
+<p><%=f.text_area  :new_motivator, size: "100x4" %></p>
+
+<p><%=f.submit %></p>
+<% end %>
