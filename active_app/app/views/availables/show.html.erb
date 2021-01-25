@@ -31,3 +31,10 @@
 <h4>Where do you plan on training and working-out?</h4>
 
 <p><%=@available.place %></p>
+
+
+<%= link_to "Go to Profile", personal_profile_path(@available.personal_profile_id)  %><br>
+
+<%= link_to "Edit Goal", edit_available_path(@available) %><br>
+<%= link_to "Delete", available_path(@available), method: :delete %><br>
+<%= link_to "Log Out", logout_path %>

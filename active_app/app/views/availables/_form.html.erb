@@ -1,7 +1,9 @@
-<%= form_for @available do |f|%>
+<%= form_for (@available) do |f|%>
+    
+    <%=f.hidden_field :personal_profile_id %>
 
     <h4>Does your neighborhood or community have well-maintained, homes, sidewalks, and roads?</h4>
-
+    
     <%=f.text_area :neighborhood, size: "50x2" %>
 
     <h4>Do you feel neighborhood in terms of crime and traffic?</h4>

@@ -23,8 +23,15 @@
 
 <%= link_to "Create New Motivation", new_personal_profile_motivation_path(@profile) if !@profile.motivation%><br>
 <%= link_to "Go to Motivation", motivation_path(@profile.motivation) if @profile.motivation %><br>
-<%= link_to "Create New Goal", new_personal_profile_goal_path(@profile) if !@profile.goal%><br>
-<%= link_to "Go to Goal", goal_path(@profile.goal) if @profile.goal %><br>
+
+<%= link_to "Create New Goal", new_personal_profile_goal_path(@profile) if !@profile.goal && @profile.motivation %><br>
+<%= link_to "Go to Goal", goal_path(@profile.goal) if @profile.goal %><br><br>
+
+<%= link_to "Check for Avalailable Resources", new_personal_profile_available_path(@profile) if !@profile.available && @profile.motivation && @profile.goal %><br><br>
+<%= link_to "Look at Available Resources", available_path(@profile.available) if @profile.available  %><br>
+
+
+
 <%= link_to "Edit Profile", edit_personal_profile_path(@profile) %><br>
 <%= link_to "Delete", personal_profile_path(@profile), method: :delete %><br>
 <%= link_to "Log Out", logout_path %>

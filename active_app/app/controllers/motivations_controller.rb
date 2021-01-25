@@ -1,6 +1,10 @@
 class MotivationsController<ApplicationController
     
 
+  def show
+    @motivation=Motivation.find_by_id(params[:id])
+  end
+
     def new
       @motivation = Motivation.new(personal_profile_id: params[:personal_profile_id])
     end
@@ -8,15 +12,6 @@ class MotivationsController<ApplicationController
     def create
         @motivation=Motivation.create(motivation_params)
         redirect_to motivation_path(@motivation)    
-    end
-        
-       
-    def show
-      @motivation=Motivation.find_by_id(params[:id])
-    end
-        
-    def edit
-        @motivation= Motivation.find_by_id(params[:id])
     end
 
     def update

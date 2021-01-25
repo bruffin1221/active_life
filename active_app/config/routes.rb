@@ -17,9 +17,11 @@ Rails.application.routes.draw do
   resources :personal_profiles, only: [:new, :show] do 
     resources :goals, only: [:new, :edit]
   end
-
   resources :goals
 
+  resources :personal_profiles, only: [:new, :show] do 
+    resources :availables, only: [:new, :edit]
+  end
   resources :availables
 
   resources :costs
