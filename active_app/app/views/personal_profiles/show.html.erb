@@ -1,4 +1,7 @@
 <h1>Welcome <%= @profile.name %></h1>
+<%= link_to "Edit Profile", edit_personal_profile_path(@profile) %><br>
+<%= link_to "Delete", personal_profile_path(@profile), method: :delete %><br>
+<%= link_to "Log Out", logout_path %>
 
 <h4>Age</h4>
  <p><%= @profile.age %></p>
@@ -21,17 +24,34 @@
 <h4>Have you had any serious injuries over the last six months?</h4>
 <p><%= @profile.serious_injuries %></p>
 
-<%= link_to "Create New Motivation", new_personal_profile_motivation_path(@profile) if !@profile.motivation%><br>
-<%= link_to "Go to Motivation", motivation_path(@profile.motivation) if @profile.motivation %><br>
+<p)Active and healthy living is not just workouts and dieting. We must understand what motivates, plan, and work within our constraints. We developed a tool that will 
+help you develop motivation, goals, and get a better handle on your circumstances. As you plan, focus on items that will help you connect with others, learn, and
+enjoy.</p>
 
-<%= link_to "Create New Goal", new_personal_profile_goal_path(@profile) if !@profile.goal && @profile.motivation %><br>
-<%= link_to "Go to Goal", goal_path(@profile.goal) if @profile.goal %><br><br>
+<p>The initial exercises focus on motivation and planning. Remember, motivation focuses on your purpose. Planning gives a roadmap on what you want to see happen.</p>
+<h4>Step 1: Understand Your Motivation</h4>
+<%= link_to "Create New Motivation", new_personal_profile_motivation_path(@profile) if !@profile.motivation%>
+<%= link_to "Go to Motivation", motivation_path(@profile.motivation) if @profile.motivation %>
 
-<%= link_to "Check for Avalailable Resources", new_personal_profile_available_path(@profile) if !@profile.available && @profile.motivation && @profile.goal %><br><br>
-<%= link_to "Look at Available Resources", available_path(@profile.available) if @profile.available  %><br>
+<h4>Step 2: Create A Plan</h4>
+<%= link_to "Create New Goal", new_personal_profile_goal_path(@profile) if !@profile.goal && @profile.motivation %>
+<%= link_to "Go to Goal", goal_path(@profile.goal) if @profile.goal %>
+
+<p>Understanding our motivation and having a plan is great and. But, they are noting without action. These next set of questions helps us put our plans in action. We 
+look at the availability of places for physical activity, time and money needed for your plan, and support. Looking at these areas should give you opportuniy of the 
+constraints and opportunities. For some of us, we may want to order some weights and work-out at home, while others of us may join a gym. The point is find activities
+and buld a lifestyle that works for us.</p>  
+
+<h4>Step 3: The Availabiity of  Places</h4>
+<%= link_to "Check for Avalailable Resources", new_personal_profile_available_path(@profile) if !@profile.available && @profile.motivation && @profile.goal %>
+<%= link_to "Look at Available Resources", available_path(@profile.available) if @profile.available  %>
+
+<h4>Step 4: Costs of Time and Money</h4>
+<%= link_to "Find costs of time and money", new_personal_profile_cost_path(@profile) if !@profile.cost && @profile.motivation && @profile.goal && @profile.available %>
+<%= link_to "Look at costs", cost_path(@profile.cost) if @profile.cost %>
+
+<h4>Step 5: Finding Support</h4>
+<%= link_to "Find Support", new_personal_profile_support_path(@profile) if !@profile.support && @profile.cost && @profile.motivation && @profile.goal && @profile.available%>
+<%= link_to "Look at support", support_path(@profile.support) if @profile.support %>
 
 
-
-<%= link_to "Edit Profile", edit_personal_profile_path(@profile) %><br>
-<%= link_to "Delete", personal_profile_path(@profile), method: :delete %><br>
-<%= link_to "Log Out", logout_path %>

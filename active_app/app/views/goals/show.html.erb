@@ -43,8 +43,7 @@
 <p><%=@goal.tactic_5 %></p>
 <p><%=@goal.tactic_6 %></p>
      
-<%= link_to "Go to Profile", personal_profile_path(@goal.personal_profile_id) %><br>
-<%= link_to "Go to Motivation", motivation_path(@goal.motivation) %><br>
+<%= link_to "Go to Profile", personal_profile_path(@goal.personal_profile_id) %><br><br>
 
 <%= link_to "Edit Goal", edit_goal_path(@goal) %><br>
 <%= link_to "Delete", goal_path(@goal), method: :delete %><br>

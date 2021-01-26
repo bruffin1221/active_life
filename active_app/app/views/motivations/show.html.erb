@@ -12,10 +12,7 @@
 <h4>If you feel lots of pressure, how can you connect with your values and interests?</h4>
 <p><%= @motivation.new_motivator %></p>
 
-<%= link_to "Go to Profile", personal_profile_path(@motivation.personal_profile_id)  %><br>
-
-<%= link_to "Create Goal", new_personal_profile_goal_path(@motivation.personal_profile) if !@motivation.goal %><br>
-<%= link_to "Go to Goal", goal_path(@motivation.goal) if @motivation.goal %><br>
+<%= link_to "Go to Profile", personal_profile_path(@motivation.personal_profile_id)  %><br><br>
 
 <%= link_to "Edit Motivation", edit_motivation_path(@motivation) %><br>
 <%= link_to "Delete", motivation_path(@motivation), method: :delete %><br>

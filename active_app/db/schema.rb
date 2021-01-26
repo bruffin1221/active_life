@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_25_035943) do
+ActiveRecord::Schema.define(version: 2021_01_25_212740) do
 
   create_table "availables", force: :cascade do |t|
     t.string "neighborhood"
@@ -63,6 +63,10 @@ ActiveRecord::Schema.define(version: 2021_01_25_035943) do
     t.string "time_spent"
     t.string "time_of_day"
     t.string "days_a_week"
+    t.integer "personal_profile_id"
+    t.integer "motivation_id"
+    t.integer "goal_id"
+    t.integer "available_id"
   end
 
   create_table "goals", force: :cascade do |t|
@@ -128,6 +132,11 @@ ActiveRecord::Schema.define(version: 2021_01_25_035943) do
     t.string "group_parts"
     t.string "other"
     t.string "klass"
+    t.integer "personal_profile_id"
+    t.integer "motivation_id"
+    t.integer "goal_id"
+    t.integer "available_id"
+    t.integer "cost_id"
   end
 
 end

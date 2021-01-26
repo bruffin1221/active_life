@@ -24,8 +24,14 @@ Rails.application.routes.draw do
   end
   resources :availables
 
+  resources :personal_profiles, only: [:new, :show] do 
+    resources :costs, only: [:new, :edit]
+  end
   resources :costs
 
+  resources :personal_profiles, only: [:new, :show] do 
+    resources :supports, only: [:new, :edit]
+  end
   resources :supports
 
 

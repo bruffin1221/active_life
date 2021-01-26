@@ -1,6 +1,7 @@
 
 <h4>What types of activities do you plan on doing?
     <%= form_for @cost do |f| %>
+        <%= f.hidden_field :personal_profile_id %>
 
     <p><%=f.text_area :activities, size: "50x2" %><p>
 
