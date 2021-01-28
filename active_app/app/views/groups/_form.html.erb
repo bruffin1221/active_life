@@ -1,0 +1,21 @@
+<%= form_for (@group) do |f| %>
+    <%= f.hidden_field :group_leader_id %>
+    <h4>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+    </h4>
+
+    <h4>
+    <%= f.label :topic %><br>
+    <%= f.text_field :topic %>
+    </h4>
+
+    <h4>
+    <%= f.label :description %><br>
+    <%=f.text_area :description, size: "50x4" %>
+    </h4>
+
+    <%= f.submit %>
+
+    <% end %>
+

@@ -1,6 +1,5 @@
 class MotivationsController<ApplicationController
     
-
   def show
     @motivation=Motivation.find_by_id(params[:id])
   end

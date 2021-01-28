@@ -1,0 +1,9 @@
+<h1><%= @leader.leader_name %></h1>
+
+<h4>What is your topic or area of expertise?</h4>
+<p><%= @leader.interest %></p>
+
+<h4>What is your topic or area of expertise?</h4>
+<p><%= @leader.description %></p>
+
+<%= link_to "Create New Group", new_group_leader_group_path(@leader)%>
