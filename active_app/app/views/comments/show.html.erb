@@ -1,0 +1,6 @@
+<h1> Your Comment </h1>
+
+<p><%= @comment.write_comment %></p>
+
+<%= link_to "Edit Comment", edit_comment_path(@comment) %><br>
+<%= link_to "Return to Discussion", discussion_path(@comment.discussion) %>

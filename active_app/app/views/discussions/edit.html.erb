@@ -1,0 +1,14 @@
+<h1>Edit Discussion</h1>
+
+<%= form_for @discussion do |f| %>
+    <h4>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+    </h4>
+
+    <%= f.submit %>
+
+    <% end %>
+
+    <%= link_to "Delete Discussion", discussion_path(@discussion), method: :delete %><br><br>
+   

@@ -54,4 +54,6 @@ and buld a lifestyle that works for us.</p>
 <%= link_to "Find Support", new_personal_profile_support_path(@profile) if !@profile.support && @profile.cost && @profile.motivation && @profile.goal && @profile.available%>
 <%= link_to "Look at support", support_path(@profile.support) if @profile.support %>
 
-
+<h4>Step 6: Provide Support</h4>
+<%= link_to "Become A Group Leader", new_personal_profile_group_leader_path(@profile) if !@profile.group_leader %>
+<%= link_to "Group Leader", group_leader_path(@profile.group_leader) if @profile.group_leader %>

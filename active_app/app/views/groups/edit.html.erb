@@ -1,0 +1,13 @@
+<h1> Edit Group</h1>
+
+<%= render partial: "form", local: {group: @group} %>
+
+
+<h4>Discussions:</h4>
+
+<% @group.group_discussions.each do |discuss| %>
+    <%= link_to discuss.discussion.name, discussion_path(discuss.discussion) %><br>
+    <%= link_to "Edit/Delete Groups", edit_discussion_path(discuss.discussion) %><br><br>
+    <% end %>
+
+<%= link_to "Delete Group", group_path(@group), method: :delete %><br><br>

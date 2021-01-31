@@ -6,4 +6,18 @@
 <h4>What is your topic or area of expertise?</h4>
 <p><%= @leader.description %></p>
 
+<h4>Groups:</h4>
+<% @leader.groups.each do |group| %>
+    <%= link_to group.name, group_path(group) %><br>
+    <%= link_to "Edit/Delete Groups", edit_group_path(group) %><br><br>
+    <% end %>
+    <br>
+<%= link_to "Go to Profile", personal_profile_path(@leader.personal_profile_id)  %><br>
+
 <%= link_to "Create New Group", new_group_leader_group_path(@leader)%>
+<br>
+<br>
+<%= link_to "Edit Group Leader", edit_group_leader_path(@leader) %>
+<br>
+<%= link_to "Delete", group_leader_path(@leader), method: :delete %><br>
+

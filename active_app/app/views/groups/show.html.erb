@@ -1,7 +1,24 @@
 <h1><%= @group.name %></h1>
 
+<h4>Who is the leader?</h4>
+<p><%= @group.group_leader.leader_name %></p>
+
+<h4>About the group leader?</h4>
+<p><%= @group.group_leader.interest %></p>
+
 <h4>What is the topic of the group?</h4>
 <p><%= @group.topic %></p>
 
 <h4>What is this group about?</h4>
-<p><%= @group.description %></p)
+<p><%= @group.description %></p>
+
+<h4> What are the current discussions?</h4>
+
+<% @group.discussions.each do |discussion| %>
+    <%= link_to discussion.name, discussion_path(discussion) %> <br><br>
+    <% end %>
+
+
+<%= link_to "Return to Groups", groups_path %><br>
+
+

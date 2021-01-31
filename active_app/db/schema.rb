@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_28_030122) do
+ActiveRecord::Schema.define(version: 2021_01_31_172747) do
 
   create_table "availables", force: :cascade do |t|
     t.string "neighborhood"
@@ -24,6 +24,11 @@ ActiveRecord::Schema.define(version: 2021_01_28_030122) do
     t.integer "personal_profile_id"
     t.integer "motivation_id"
     t.integer "goal_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "write_comment"
+    t.integer "discussion_id"
   end
 
   create_table "costs", force: :cascade do |t|
@@ -69,6 +74,10 @@ ActiveRecord::Schema.define(version: 2021_01_28_030122) do
     t.integer "available_id"
   end
 
+  create_table "discussions", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "goals", force: :cascade do |t|
     t.string "objective_1"
     t.string "strategy_1"
@@ -87,10 +96,18 @@ ActiveRecord::Schema.define(version: 2021_01_28_030122) do
     t.integer "motivation_id"
   end
 
+  create_table "group_discussions", force: :cascade do |t|
+    t.integer "group_id"
+    t.integer "discussion_id"
+    t.index ["discussion_id"], name: "index_group_discussions_on_discussion_id"
+    t.index ["group_id"], name: "index_group_discussions_on_group_id"
+  end
+
   create_table "group_leaders", force: :cascade do |t|
     t.string "leader_name"
     t.string "interest"
     t.string "description"
+    t.integer "personal_profile_id"
   end
 
   create_table "groups", force: :cascade do |t|
@@ -152,4 +169,6 @@ ActiveRecord::Schema.define(version: 2021_01_28_030122) do
     t.integer "cost_id"
   end
 
+  add_foreign_key "group_discussions", "discussions"
+  add_foreign_key "group_discussions", "groups"
 end

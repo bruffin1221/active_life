@@ -15,7 +15,13 @@
     <%=f.text_area :description, size: "50x4" %>
     </h4>
 
-    <%= f.submit %>
-
-    <% end %>
+    <h4>
+    <%=f.label :discussion %><br>
+    <%= f.fields_for :discussions, @group.discussions.build do |discussions_fields| %>
+        <%= discussions_fields.text_field :name %><br>
+    </h4>
+        <% end %>
+        
+        <%= f.submit %>
+        <% end %>
 

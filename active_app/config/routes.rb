@@ -12,6 +12,9 @@ Rails.application.routes.draw do
  end 
  resources :groups
 
+resources :personal_profiles do
+  resources :group_leaders
+end
 
   resources :personal_profiles, only: [:new, :show] do 
     resources :motivations, only: [:new, :edit]
@@ -40,5 +43,8 @@ Rails.application.routes.draw do
   end
   resources :supports
 
-
+  resources :discussions do 
+    resources :comments
+  end
+resources :comments
 end

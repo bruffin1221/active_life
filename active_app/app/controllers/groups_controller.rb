@@ -11,10 +11,8 @@ class GroupsController < ApplicationController
     end
   end
   
-  
-
     def new
-        if params[:group_leader_id] && !Group.exists?(params[:group_leader_id])
+        if params[:group_leader_id] && !GroupLeader.exists?(params[:group_leader_id])
             redirect_to groups_path
           else
             @group = Group.new(group_leader_id: params[:group_leader_id])
@@ -22,30 +20,60 @@ class GroupsController < ApplicationController
     end
     
     def create
-        @group = Group.new(group_params)
+      @group = Group.new(group_params)
+      if @group.save
+      redirect_to @group
+    else
+      render :new
+    end
+  end
+  
+    
+    def show
+        if params[:group_leader_id] && GroupLeader.exists?(params[:group_leader_id])
+          group_leader = GroupLeader.find_by_id(params[:group_leader_id])
+          @group= group_leader.groups.find_by_id(params[:id])
+        elsif !params[:group_leader_id]
+            @group=Group.find_by_id(params[:id])
+        elsif params[:group_leader_id] && !GroupLeader.exists?(params[:group_leader_id])
+          redirect_to groups_path
+        end
+      end
+
+      def edit
+        if params[:group_leader_id] && GroupLeader.exists?(params[:group_leader_id])
+          group_leader = GroupLeader.find_by_id(params[:group_leader_id])
+          @group = group_leader.groups.find_by(id: params[:id])
+        elsif !params[:group_leader_id]
+          @group=Group.find_by_id(params[:id])
+        elsif params[:group_leader_id] && !GroupLeader.exists?(params[:group_leader_id])
+          redirect_to groups_path
+        end
+      end
+
+      def update
+        @group =Group.find_by_id(params[:id])
+        @group.update(group_params)
         if @group.save
           redirect_to @group
         else
-          render :new
+          render :edit
         end
+      end
+
+      def destroy
+        @group=Group.find_by_id(params[:id])
+        @group.destroy
+        redirect_to group_leader_path(@group.group_leader.id)
     end
-    
-    def show
-        @group_leader = GroupLeader.find_by_id(params[:group_leader_id])
-        if !@group_leader.nil? && Group.exists?(params[:id])
-          @group= @group_leader.groups.find_by_id(params[:id])
-        elsif @group_leaders.nil? || !Group.exists(params[:id])
-              redirect_to groups_path
-            else
-              @group = Group.find(params[:id])
-            end
-          end
-  
+     
+          
+   
       
     private 
     
     def group_params
-        params.require(:group).permit(:name, :topic, :description, :group_leader_id)
+        params.require(:group).permit(:name, :topic, :description, :group_leader_id, discussion_ids:[], discussions_attributes: [:name] )
     end
     
 end

@@ -1,4 +1,5 @@
-<%= form_for @leader do |f| %>
+<%= form_for (@leader) do |f| %>
+    <%= f.hidden_field :personal_profile_id %> 
     <h4>
     <%= f.label :leader_name %><br>
     <%= f.text_field :leader_name %>

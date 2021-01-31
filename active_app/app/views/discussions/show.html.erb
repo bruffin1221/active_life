@@ -1,0 +1,9 @@
+<h1><%=@discussion.name%></h1>
+
+<%= link_to "Add Comments", new_discussion_comment_path(@discussion) %>
+<br>
+<br>
+<h4> Comments: </h4>
+<% @discussion.comments.each do |discuss| %>
+    <%= discuss.write_comment %><br>
+    <% end %>
