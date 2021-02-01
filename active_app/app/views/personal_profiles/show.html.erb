@@ -57,3 +57,14 @@ and buld a lifestyle that works for us.</p>
 <h4>Step 6: Provide Support</h4>
 <%= link_to "Become A Group Leader", new_personal_profile_group_leader_path(@profile) if !@profile.group_leader %>
 <%= link_to "Group Leader", group_leader_path(@profile.group_leader) if @profile.group_leader %>
+
+<h4>Step 7: Join the Conversation</h4>
+<%= link_to "Check-out Groups", groups_path %><br>
+
+<h4>Your Comments:</h4>
+
+<% @profile.comments.each do |comment| %>
+    <%= link_to comment.write_comment, comment_path(comment) %><br>
+    <%= link_to "Edit Comment", edit_comment_path(comment) %>
+
+    <% end %>  

@@ -11,6 +11,8 @@ class CommentsController < ApplicationController
 
     def create
         @comment=Comment.find_or_create_by(comment_params)
+        user=current_user.id
+        @comment.update(personal_profile_id: user)
         redirect_to comment_path(@comment)
     end
 

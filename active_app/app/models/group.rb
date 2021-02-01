@@ -1,5 +1,6 @@
 class Group < ActiveRecord::Base
     belongs_to :group_leader
+
     has_many :group_discussions, dependent: :destroy
     has_many :discussions, through: :group_discussions
     accepts_nested_attributes_for :discussions

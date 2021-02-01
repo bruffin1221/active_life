@@ -2,7 +2,9 @@
 <%= link_to "Return to Groups", groups_path %><br>
 <br>
 <h4> Comments: </h4>
-<%= link_to "Add Comments", new_discussion_comment_path(@discussion) %><br>
+<%= link_to "Add Comments", new_discussion_comment_path(@discussion) %>
+<br>
+<br>
 <% @discussion.comments.each do |discuss| %>
     <%=link_to discuss.write_comment, comment_path(discuss) %><br>
     <% end %>

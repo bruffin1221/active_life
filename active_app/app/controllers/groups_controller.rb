@@ -3,6 +3,7 @@ class GroupsController < ApplicationController
   def index
     if !params[:group_leader_id]
       @groups=Group.all
+      @user=current_user
     elsif GroupLeader.exists?(params[:group_leader_id])
       group_leaders =GroupLeader.find_by_id(params[:group_leader_id])
       @groups = group_leaders.groups

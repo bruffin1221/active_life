@@ -4,8 +4,9 @@
 <p><%= @comment.write_comment %></p>
 
 <h4>Reply:</h4>
-<%=link_to "Add Reply", new_comment_reply_path(@comment) %><br><br>
-
+<%=link_to "Add Reply", new_comment_reply_path(@comment) %>
+<br>
+<br>
 <% @comment.replies.each do |comment| %>
-    <%= comment.write_reply %>
+    <%= comment.write_reply %><br><br>
 <%end%>

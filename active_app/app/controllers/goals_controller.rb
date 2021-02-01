@@ -2,6 +2,7 @@ class GoalsController < ApplicationController
 
 def new
     @goal=Goal.new(personal_profile_id: params[:personal_profile_id])
+    
 end
 
 def create

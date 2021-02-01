@@ -1,5 +1,8 @@
 <h1>Groups</h1>
-
+<p>Our groups function as small forums. You can participate in different conversation on the outdoors, nutrition, or weightlifitng. </P>
+<%= link_to "Return to Profile", personal_profile_path(@user) %>
+<br>
+<br>
 <% @groups.each do |group| %>
     <%= link_to group.name, group_path(group) %><br>
     <% end %>

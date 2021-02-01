@@ -5,6 +5,7 @@ class PersonalProfile < ActiveRecord::Base
     has_one :available
     has_one :cost
     has_one :support
+    has_many :comments
     has_secure_password
 
 end 
