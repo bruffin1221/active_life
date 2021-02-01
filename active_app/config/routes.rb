@@ -47,4 +47,11 @@ end
     resources :comments
   end
 resources :comments
+
+resources :comments do 
+  resources :replies
 end
+
+resources :replies
+
+end 

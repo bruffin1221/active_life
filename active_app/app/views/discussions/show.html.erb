@@ -1,9 +1,8 @@
 <h1><%=@discussion.name%></h1>
-
-<%= link_to "Add Comments", new_discussion_comment_path(@discussion) %>
-<br>
+<%= link_to "Return to Groups", groups_path %><br>
 <br>
 <h4> Comments: </h4>
+<%= link_to "Add Comments", new_discussion_comment_path(@discussion) %><br>
 <% @discussion.comments.each do |discuss| %>
-    <%= discuss.write_comment %><br>
+    <%=link_to discuss.write_comment, comment_path(discuss) %><br>
     <% end %>
