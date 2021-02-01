@@ -1,4 +1,5 @@
 class CostsController < ApplicationController
+    before_action :require_login
     
     def show
         @cost=Cost.find_by_id(params[:id])
@@ -40,6 +41,12 @@ class CostsController < ApplicationController
         :other_responsibilities, :television, :time, :social_media, :video_games, :internet_surfing, 
         :other_activities, :dedicated, :time_spent, :time_of_day, :days_a_week, :personal_profile_id)
     end
+
+    def require_login
+        if current_user.blank?
+          redirect_to '/'
+        end
+      end
 
 
 end 

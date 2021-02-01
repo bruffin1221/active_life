@@ -1,4 +1,6 @@
 class DiscussionsController < ApplicationController
+    before_action :require_login
+
 
     def show
         @discussion=Discussion.find_by_id(params[:id])
@@ -20,6 +22,14 @@ class DiscussionsController < ApplicationController
         @discussion=Discussion.find_by_id(params[:id])
         @discussion.destroy
         redirect_to groups_path
+      end
+
+      private
+
+      def require_login
+        if current_user.blank?
+          redirect_to '/'
+        end
       end
 
     

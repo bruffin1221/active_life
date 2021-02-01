@@ -1,4 +1,5 @@
 class SupportsController<ApplicationController
+    before_action :require_login
 
 def show
 @support=Support.find_by_id(params[:id])
@@ -39,5 +40,11 @@ def support_params
     :friend_physical, :f_physical, :friend_name, :hiking, :cycling, :walking_paths, :rec_centers, :other, 
     :groups, :group_parts, :klass, :personal_profile_id)
 end
+
+def require_login
+    if current_user.blank?
+      redirect_to '/'
+    end
+  end
 
 end

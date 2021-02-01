@@ -1,4 +1,5 @@
 class AvailablesController <ApplicationController
+  before_action :require_login
    
     def new
       @available=Available.new(personal_profile_id: params[:personal_profile_id])
@@ -36,6 +37,12 @@ class AvailablesController <ApplicationController
     def available_params
        params.require(:available).permit(:neighborhood, :man_made, :safety, :natural, :gym, :classes, :physical, 
        :place, :personal_profile_id)
+    end
+
+    def require_login
+      if current_user.blank?
+        redirect_to '/'
+      end
     end
 
     end

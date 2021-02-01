@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+    before_action :require_login
 
     def show
         @comment=Comment.find_by_id(params[:id])
@@ -39,6 +40,12 @@ class CommentsController < ApplicationController
     def comment_params 
         params.require(:comment).permit(:write_comment, :discussion_id)
     end
+
+    def require_login
+        if current_user.blank?
+          redirect_to '/'
+        end
+      end
 
 
 end

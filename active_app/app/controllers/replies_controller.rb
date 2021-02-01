@@ -1,4 +1,5 @@
 class RepliesController<ApplicationController
+    before_action :require_login
 
 def show
     @reply = Reply.find_by_id(params[:id])
@@ -34,5 +35,11 @@ private
 def reply_params
     params.require(:reply).permit(:write_reply, :comment_id)
 end
+
+def require_login
+    if current_user.blank?
+      redirect_to '/'
+    end
+  end
 
 end

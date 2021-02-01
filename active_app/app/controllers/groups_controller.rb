@@ -1,13 +1,15 @@
 class GroupsController < ApplicationController
+  before_action :require_login
 
   def index
     if !params[:group_leader_id]
       @groups=Group.all
       @user=current_user
-    elsif GroupLeader.exists?(params[:group_leader_id])
+    elsif GroupLeader.exists?(params[:group_leader_id]) 
       group_leaders =GroupLeader.find_by_id(params[:group_leader_id])
       @groups = group_leaders.groups
-    elsif !GroupLeader.exists?(params[:group_leader_id])
+      @user=current_user
+    elsif !GroupLeader.exists?(params[:group_leader_id]) 
       redirect_to group_leaders_path
     end
   end
@@ -31,15 +33,18 @@ class GroupsController < ApplicationController
   
     
     def show
-        if params[:group_leader_id] && GroupLeader.exists?(params[:group_leader_id])
-          group_leader = GroupLeader.find_by_id(params[:group_leader_id])
-          @group= group_leader.groups.find_by_id(params[:id])
-        elsif !params[:group_leader_id]
-            @group=Group.find_by_id(params[:id])
-        elsif params[:group_leader_id] && !GroupLeader.exists?(params[:group_leader_id])
-          redirect_to groups_path
-        end
+      if params[:group_leader_id] && GroupLeader.exists?(params[:group_leader_id]) && !Group.exists?(params[:id])
+        groupleader=GroupLeader.find_by_id(params[:group_leader_id])
+        redirect_to group_leader_path(groupleader)
+      elsif params[:group_leader_id] && GroupLeader.exists?(params[:group_leader_id])
+        group_leader = GroupLeader.find_by_id(params[:group_leader_id])
+        @group= group_leader.groups.find_by_id(params[:id])
+      elsif !params[:group_leader_id]
+        @group=Group.find_by_id(params[:id])
+      elsif params[:group_leader_id] && !GroupLeader.exists?(params[:group_leader_id]) 
+        redirect_to groups_path
       end
+    end
 
       def edit
         if params[:group_leader_id] && GroupLeader.exists?(params[:group_leader_id])
@@ -76,6 +81,14 @@ class GroupsController < ApplicationController
     def group_params
         params.require(:group).permit(:name, :topic, :description, :group_leader_id, discussion_ids:[], discussions_attributes: [:name] )
     end
+
+    def require_login
+      if current_user.blank?
+        redirect_to '/'
+      end
+    end
+
+
     
 end
 

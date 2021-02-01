@@ -1,5 +1,8 @@
 class MotivationsController<ApplicationController
-    
+  before_action :require_login
+
+
+
   def show
     @motivation=Motivation.find_by_id(params[:id])
   end
@@ -31,6 +34,12 @@ class MotivationsController<ApplicationController
     
     def motivation_params
         params.require(:motivation).permit(:motivator, :motivation_type, :pressure, :new_motivator, :personal_profile_id)
+    end
+
+    def require_login
+      if current_user.blank?
+        redirect_to '/'
+      end
     end
 
 

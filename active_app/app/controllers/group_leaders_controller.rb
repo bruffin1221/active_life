@@ -1,4 +1,5 @@
 class GroupLeadersController < ApplicationController
+    before_action :require_login
 
 def index
     @group_leaders=GroupLeader.all
@@ -41,5 +42,11 @@ private
 def leader_params
     params.require(:group_leader).permit(:leader_name, :interest, :description, :personal_profile_id) 
 end
+
+def require_login
+    if current_user.blank?
+      redirect_to '/'
+    end
+  end
 
 end
