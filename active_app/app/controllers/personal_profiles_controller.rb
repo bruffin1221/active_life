@@ -23,7 +23,8 @@ class PersonalProfilesController<ApplicationController
       if current_user.id==params[:id].to_i
         @profile = PersonalProfile.find_by_id(current_user.id)
       else 
-        redirect_to root_path, :alert => "Please Fill In All Forms"
+        flash[:alert] = "Cannot view this page"
+        redirect_to root_path
       end
     end
 
@@ -32,7 +33,8 @@ class PersonalProfilesController<ApplicationController
       if current_user.id==params[:id].to_i
         @profile= PersonalProfile.find_by_id(current_user.id)
       else 
-       redirect_to root_path
+        flash[:alert] = "Cannot view this page"
+        redirect_to root_path
       end
     end
 

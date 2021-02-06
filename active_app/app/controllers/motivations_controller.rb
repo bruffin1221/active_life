@@ -4,16 +4,32 @@ class MotivationsController<ApplicationController
 
 
   def show
-    @motivation=Motivation.find_by_id(params[:id])
-  end
+      @motivation=Motivation.find_by_id(params[:id])
+      if current_user.id!=@motivation.personal_profile_id
+        flash[:alert] = "Cannot view this page"
+        redirect_to personal_profile_path(@motivation) 
+      end
+    end
 
     def new
-      @motivation = Motivation.new(personal_profile_id: params[:personal_profile_id])
-    end
+        @motivation = Motivation.new(personal_profile_id: params[:personal_profile_id])
+        if !current_user.motivation.nil?
+          flash[:alert] = "Cannot view this page"
+          redirect_to root_path
+        end
+      end
      
     def create
         @motivation=Motivation.create(motivation_params)
         redirect_to motivation_path(@motivation)    
+    end
+
+    def edit
+      @motivation= Motivation.find_by_id(params[:id].to_i)
+      if current_user.id!=@motivation.personal_profile_id
+        flash[:alert] = "Cannot view this page"
+        redirect_to personal_profile_path(@motivation)
+      end
     end
 
     def update

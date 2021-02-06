@@ -3,7 +3,10 @@ class GoalsController < ApplicationController
 
 def new
     @goal=Goal.new(personal_profile_id: params[:personal_profile_id])
-    
+    if !current_user.motivation.nil?
+        flash[:alert] = "Cannot view this page"
+        redirect_to root_path
+    end
 end
 
 def create
@@ -15,10 +18,18 @@ end
 
 def show 
     @goal=Goal.find_by_id(params[:id])
+    if current_user.id!=@goal.personal_profile_id
+        flash[:alert] = "Cannot view this page"
+        redirect_to root_path
+    end
 end
 
 def edit
     @goal= Goal.find_by_id(params[:id])
+    if !current_user.goal.nil?
+        flash[:alert] = "Cannot view this page"
+        redirect_to root_path
+    end
 end
 
 def update

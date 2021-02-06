@@ -1,11 +1,11 @@
 <%= form_for @profile do |f| %>
     <h4>
-    <%= f.label :name %><br>
+    <%= f.label :name_required %><br>
     <%= f.text_field :name %>
     </h4>
 
     <h4>
-    <%= f.label :email %><br>
+    <%= f.label :email_required %><br>
     <%= f.email_field :email %>
     </h4>
 
@@ -46,9 +46,9 @@
     <%=f.radio_button :serious_injuries, "No" %> No
     
     <h4>
-    <%= f.label :password %><br>
+    <%= f.label :password_required %><br>
     <%= f.password_field :password %><br>
-    <%= f.label :password_confirmation %><br>
+    <%= f.label :password_confirmation_required %><br>
     <%= f.password_field :password_confirmation %>
     </h4>
     <%= f.submit %>

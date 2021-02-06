@@ -8,7 +8,8 @@ class PersonalProfile < ActiveRecord::Base
     has_many :comments
     has_secure_password
 
-    
+    validates :email, presence: true
+    validates :name, presence: true, uniqueness: true 
 
 
 end 
