@@ -11,18 +11,29 @@ class PersonalProfilesController<ApplicationController
         if @profile.valid?
             @profile.save
             session[:user_id]=@profile.id
-            redirect_to personal_profile_path(@profile), :alert => "You Just Signed Up."
+            flash[:alert] = "You Just Signed Up."
+            redirect_to personal_profile_path(@profile)
         else
-            redirect_to "/", :alert => "Please Fill In All Forms"
+          flash[:alert] = "Please add name and password"
+          redirect_to personal_profiles_new_path 
         end
     end
 
     def show
-        @profile= PersonalProfile.find_by_id(params[:id])
+      if current_user.id==params[:id].to_i
+        @profile = PersonalProfile.find_by_id(current_user.id)
+      else 
+        redirect_to root_path, :alert => "Please Fill In All Forms"
+      end
     end
 
     def edit
-        @profile= PersonalProfile.find_by_id(params[:id])
+      user = params[:id].to_i
+      if current_user.id==params[:id].to_i
+        @profile= PersonalProfile.find_by_id(current_user.id)
+      else 
+       redirect_to root_path
+      end
     end
 
     def update

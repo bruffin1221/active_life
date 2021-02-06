@@ -7,6 +7,10 @@ Rails.application.routes.draw do
  post '/logout' => 'sessions#destroy'
  get '/logout' => 'sessions#destroy'
 
+
+ get '/auth/facebook/callback' => 'sessions#facebook'
+  
+
  resources :group_leaders do
   resources :groups
  end 
@@ -53,5 +57,9 @@ resources :comments do
 end
 
 resources :replies
+
+
+
+
 
 end 

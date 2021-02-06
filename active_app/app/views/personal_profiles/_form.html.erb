@@ -5,6 +5,11 @@
     </h4>
 
     <h4>
+    <%= f.label :email %><br>
+    <%= f.email_field :email %>
+    </h4>
+
+    <h4>
     <%= f.label :age %><br>
     <%= f.text_field :age %>
     </h4>
@@ -42,17 +47,10 @@
     
     <h4>
     <%= f.label :password %><br>
-    <%= f.password_field :password %>
-    </h4>
-
-    <h4>
+    <%= f.password_field :password %><br>
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
     </h4>
-
-
     <%= f.submit %>
 
     <% end %>
-
-

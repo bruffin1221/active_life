@@ -9,9 +9,11 @@ class SessionsController < ApplicationController
          @profile = PersonalProfile.find_by(name: params[:name])
          if @profile && @profile.authenticate(params[:password])
             session[:user_id]=@profile.id
+            flash[:alert]="Successfully Logged-In"
             redirect_to personal_profile_path(@profile)
         else
-            redirect_to '/login'
+          flash[:alert] = "Wrong Username or Password"
+          redirect_to '/login'
         end
     end
 
@@ -19,6 +21,24 @@ class SessionsController < ApplicationController
         session.delete :user_id
         redirect_to "/"
     end
-   
 
-end
+    def facebook
+       @profile = PersonalProfile.find_or_create_by(uid: auth['uid']) do |profile|
+        profile.name = auth['info']['name']
+        profile.email = auth['info']['email']
+        profile.password_digest = SecureRandom.hex  
+      end
+       if @profile.save
+        session[:user_id] = @profile.id
+        flash[:alert]="Successfully Logged-In"
+        redirect_to personal_profile_path(@profile)
+      end
+    end
+    
+    private
+
+    def auth
+      request.env['omniauth.auth']
+    end
+
+    end

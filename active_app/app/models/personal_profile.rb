@@ -8,4 +8,7 @@ class PersonalProfile < ActiveRecord::Base
     has_many :comments
     has_secure_password
 
+    
+
+
 end 
