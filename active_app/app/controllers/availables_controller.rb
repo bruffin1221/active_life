@@ -3,7 +3,12 @@ class AvailablesController <ApplicationController
    
     def new
       @available=Available.new(personal_profile_id: params[:personal_profile_id])
+      if current_user.id!=@available.personal_profile_id || !current_user.available.nil?
+        flash[:alert] = "Cannot view this page"
+        redirect_to root_path
+      end
     end
+    
     
     def create
       @available=Available.find_or_create_by(available_params)
@@ -14,11 +19,19 @@ class AvailablesController <ApplicationController
 
     def show
       @available= Available.find_by_id(params[:id])
+      if current_user.id!=@available.personal_profile_id  
+        flash[:alert] = "Cannot view this page"
+        redirect_to root_path
+      end
     end
 
     def edit
       @available=Available.find_by_id(params[:id])
-  end
+      if current_user.id!=@available.personal_profile_id
+        flash[:alert] = "Cannot view this page"
+        redirect_to root_path
+      end
+    end
 
   def update
       @available =Available.find_by_id(params[:id])

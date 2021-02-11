@@ -10,12 +10,18 @@ def new
 end
 
 def create 
-    @reply = Reply.find_or_create_by(reply_params)
+    @reply = Reply.new(reply_params)
+    @reply.save
+    @reply.update(personal_profile_id: current_user.id)
     redirect_to reply_path(@reply) 
 end
 
 def edit
     @reply = Reply.find_by_id(params[:id])
+    if current_user.id!=@reply.personal_profile_id || current_user.replies.nil?
+        flash[:alert] = "Cannot view this page"
+        redirect_to root_path
+    end
 end
 
 def update

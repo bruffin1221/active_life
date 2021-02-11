@@ -3,10 +3,18 @@ class CostsController < ApplicationController
     
     def show
         @cost=Cost.find_by_id(params[:id])
+        if current_user.id!=@cost.personal_profile_id  
+            flash[:alert] = "Cannot view this page"
+            redirect_to root_path
+        end
     end
     
     def new
         @cost=Cost.new(personal_profile_id: params[:personal_profile_id])
+        if current_user.id!=@cost.personal_profile_id || !current_user.goal.nil?
+            flash[:alert] = "Cannot view this page"
+            redirect_to root_path
+        end
     end
     
     def create
@@ -18,6 +26,10 @@ class CostsController < ApplicationController
 
     def edit
         @cost=Cost.find_by_id(params[:id])
+        if current_user.id!=@cost.personal_profile_id
+            flash[:alert] = "Cannot view this page"
+            redirect_to root_path
+        end
     end
   
     def update

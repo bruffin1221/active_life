@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
 
 def new
     @goal=Goal.new(personal_profile_id: params[:personal_profile_id])
-    if !current_user.motivation.nil?
+    if current_user.id!=@goal.personal_profile_id || !current_user.goal.nil?
         flash[:alert] = "Cannot view this page"
         redirect_to root_path
     end

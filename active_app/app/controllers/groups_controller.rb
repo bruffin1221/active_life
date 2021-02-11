@@ -15,11 +15,15 @@ class GroupsController < ApplicationController
   end
   
     def new
-        if params[:group_leader_id] && !GroupLeader.exists?(params[:group_leader_id])
-            redirect_to groups_path
-          else
-            @group = Group.new(group_leader_id: params[:group_leader_id])
-          end
+      if params[:id]=="new"
+        redirect_to personal_profile_path(current_user)
+      elsif params[:group_leader_id].to_i && !GroupLeader.exists?(params[:group_leader_id].to_i)
+        redirect_to groups_path
+      elsif current_user.group_leader.id!=params[:group_leader_id].to_i
+        redirect_to personal_profile_path(current_user)
+      elsif params[:group_leader_id].to_i && GroupLeader.exists?(params[:group_leader_id].to_i)
+        @group = Group.new(group_leader_id: params[:group_leader_id].to_i)
+      end
     end
     
     def create
@@ -31,16 +35,18 @@ class GroupsController < ApplicationController
     end
   end
   
-    
     def show
       if params[:group_leader_id] && GroupLeader.exists?(params[:group_leader_id]) && !Group.exists?(params[:id])
         groupleader=GroupLeader.find_by_id(params[:group_leader_id])
+        @user=current_user
         redirect_to group_leader_path(groupleader)
       elsif params[:group_leader_id] && GroupLeader.exists?(params[:group_leader_id])
         group_leader = GroupLeader.find_by_id(params[:group_leader_id])
         @group= group_leader.groups.find_by_id(params[:id])
+        @user=current_user
       elsif !params[:group_leader_id]
         @group=Group.find_by_id(params[:id])
+        @user=current_user
       elsif params[:group_leader_id] && !GroupLeader.exists?(params[:group_leader_id]) 
         redirect_to groups_path
       end
@@ -50,9 +56,9 @@ class GroupsController < ApplicationController
         if params[:group_leader_id] && GroupLeader.exists?(params[:group_leader_id])
           group_leader = GroupLeader.find_by_id(params[:group_leader_id])
           @group = group_leader.groups.find_by(id: params[:id])
-        elsif !params[:group_leader_id]
+        elsif !params[:group_leader_id] 
           @group=Group.find_by_id(params[:id])
-        elsif params[:group_leader_id] && !GroupLeader.exists?(params[:group_leader_id])
+        else
           redirect_to groups_path
         end
       end

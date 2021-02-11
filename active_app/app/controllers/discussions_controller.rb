@@ -7,7 +7,7 @@ class DiscussionsController < ApplicationController
     end
 
     def edit
-        @discussion=Discussion.find_by_id(params[:id])    
+      @discussion=Discussion.find_by_id(params[:id])  
     end
     
     def update

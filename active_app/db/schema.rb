@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_04_015826) do
+ActiveRecord::Schema.define(version: 2021_02_11_065554) do
 
   create_table "availables", force: :cascade do |t|
     t.string "neighborhood"
@@ -143,6 +143,7 @@ ActiveRecord::Schema.define(version: 2021_02_04_015826) do
   create_table "replies", force: :cascade do |t|
     t.string "write_reply"
     t.integer "comment_id"
+    t.integer "personal_profile_id"
   end
 
   create_table "supports", force: :cascade do |t|

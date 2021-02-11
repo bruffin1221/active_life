@@ -1,11 +1,6 @@
 <%= form_for (@leader) do |f| %>
     <%= f.hidden_field :personal_profile_id %> 
     <h4>
-    <%= f.label :leader_name %><br>
-    <%= f.text_field :leader_name %>
-    </h4>
-
-    <h4>
     <%= f.label :interest %><br>
     <%= f.text_area :interest, size: "50x2" %>
     </h4>

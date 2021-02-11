@@ -69,4 +69,11 @@ and buld a lifestyle that works for us.</p>
     <%= link_to comment.write_comment, comment_path(comment) %><br>
     <%= link_to "Edit Comment", edit_comment_path(comment) %>
 
-    <% end %>  
+    <% end %>
+
+<h4>Your Replies:</h4>
+
+<% @profile.replies.each do |reply| %>
+    <%= link_to reply.write_reply, reply_path(reply) %><br>
+    <%= link_to "Edit/Delete Reply", edit_reply_path(reply) %><br><br>
+    <% end %> 

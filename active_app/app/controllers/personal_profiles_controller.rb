@@ -8,7 +8,7 @@ class PersonalProfilesController<ApplicationController
 
     def create 
         @profile=PersonalProfile.new(profile_params)
-        if @profile.valid?
+        if !@profile.blank?
             @profile.save
             session[:user_id]=@profile.id
             flash[:alert] = "You Just Signed Up."
@@ -57,7 +57,7 @@ class PersonalProfilesController<ApplicationController
 private
 
 def profile_params
-    params.require(:personal_profile).permit(:name, :age, :occupation, :weight, :height, :back_pain, :serious_illness,
+    params.require(:personal_profile).permit(:name, :email, :age, :occupation, :weight, :height, :back_pain, :serious_illness,
     :serious_injuries, :password, :password_confirmation)
 end
 

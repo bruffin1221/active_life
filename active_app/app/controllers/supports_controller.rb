@@ -2,11 +2,19 @@ class SupportsController<ApplicationController
     before_action :require_login
 
 def show
-@support=Support.find_by_id(params[:id])
+  @support=Support.find_by_id(params[:id])
+  if current_user.id!=@support.personal_profile_id  
+    flash[:alert] = "Cannot view this page"
+    redirect_to root_path
+  end
 end
 
 def new
 @support=Support.new(personal_profile_id: params[:personal_profile_id])
+if current_user.id!=@support.personal_profile_id || !current_user.goal.nil?
+  flash[:alert] = "Cannot view this page"
+  redirect_to root_path
+end
 end
 
 def create
@@ -18,6 +26,10 @@ end
 
 def edit
     @support=Support.find_by_id(params[:id])
+    if current_user.id!=@support.personal_profile_id
+      flash[:alert] = "Cannot view this page"
+      redirect_to root_path
+  end
 end
 
 def update

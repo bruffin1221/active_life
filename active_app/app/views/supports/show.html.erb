@@ -70,9 +70,11 @@
 
 <p><%=@support.klass %></p>
 
-<%= link_to "Go to Profile", personal_profile_path(@support.personal_profile_id)  %><br>
-
-
+<%= link_to "Go to Profile", personal_profile_path(@support.personal_profile_id)  %>
+<br>
+<br>
 <%= link_to "Edit Support", edit_support_path(@support) %><br>
-<%= link_to "Delete", support_path(@support), method: :delete %><br>
+<%= link_to "Delete", support_path(@support), method: :delete %>
+<br>
+<br>
 <%= link_to "Log Out", logout_path %>

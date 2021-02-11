@@ -19,7 +19,11 @@ class CommentsController < ApplicationController
 
 
     def edit
-        @comment=Comment.find_by_id(params[:id])
+         @comment=Comment.find_by_id(params[:id])
+         if current_user.id!=@comment.personal_profile_id || current_user.comments.nil?
+            flash[:alert] = "Cannot view this page"
+            redirect_to root_path
+        end
     end
 
 

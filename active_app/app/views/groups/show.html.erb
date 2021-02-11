@@ -18,7 +18,8 @@
     <%= link_to discussion.name, discussion_path(discussion) %> <br><br>
     <% end %>
 
-
+    
+<%= link_to "Edit/Delete", edit_group_path(@group) if !@user.group_leader.nil? && @group.group_leader.id==@user.group_leader.id%><br>
 <%= link_to "Return to Groups", groups_path %><br>
 
 
